@@ -1,0 +1,86 @@
+/* Nokia 3310 snake - monochrome LCD, all CSS, no build */
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body {
+  background: radial-gradient(1200px 700px at 50% 20%, #1d2733 0%, #0b0f14 70%);
+  font-family: 'Press Start 2P', monospace;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100svh; padding: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+.stage { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+.phone {
+  width: 320px; max-width: 92vw;
+  background: linear-gradient(160deg, #3d5478 0%, #2c3e5c 45%, #22304a 100%);
+  border-radius: 46px 46px 60px 60px / 40px 40px 70px 70px;
+  padding: 18px 18px 22px;
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,.25),
+    inset 0 -6px 12px rgba(0,0,0,.35),
+    0 30px 60px rgba(0,0,0,.55);
+  display: flex; flex-direction: column; align-items: center;
+  user-select: none; touch-action: manipulation;
+}
+.earpiece {
+  width: 64px; height: 7px; border-radius: 4px;
+  background: #10161f; box-shadow: inset 0 1px 2px #000, 0 1px 0 rgba(255,255,255,.12);
+  margin-bottom: 6px;
+}
+.brand { color: #c8d4e6; font-size: 11px; letter-spacing: 3px; margin-bottom: 10px; text-shadow: 0 -1px 0 rgba(0,0,0,.6); }
+
+.bezel {
+  position: relative; width: 100%;
+  background: #141a12; border-radius: 18px;
+  padding: 12px;
+  box-shadow: inset 0 3px 8px #000, 0 1px 0 rgba(255,255,255,.08);
+}
+#lcd {
+  display: block; width: 100%; height: auto;
+  background: #9bbc0f; border-radius: 8px;
+  image-rendering: pixelated;
+  box-shadow: inset 0 0 18px rgba(15,56,15,.55);
+}
+.glare {
+  position: absolute; inset: 12px; border-radius: 8px; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.02) 28%, transparent 40%);
+}
+
+.softkeys { display: flex; gap: 8px; margin-top: 14px; width: 100%; }
+.softkey {
+  flex: 1; padding: 10px 0; border: 0; border-radius: 14px;
+  font-family: inherit; font-size: 8px; color: #dfe8f5; letter-spacing: 1px;
+  background: linear-gradient(180deg, #4c648c, #33486c);
+  box-shadow: 0 3px 0 #1b2940, 0 4px 8px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.3);
+  cursor: pointer;
+}
+.softkey:active { transform: translateY(2px); box-shadow: 0 1px 0 #1b2940, inset 0 1px 0 rgba(255,255,255,.3); }
+
+.navpad {
+  display: grid; margin-top: 14px;
+  grid-template-columns: 56px 56px 56px; grid-template-rows: 40px 40px 40px;
+  gap: 2px;
+}
+.nav { border: 0; cursor: pointer; background: linear-gradient(180deg, #22303f, #16202c);
+  box-shadow: 0 3px 0 #0b1118, 0 4px 8px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.18); }
+.nav:active { transform: translateY(2px); box-shadow: 0 1px 0 #0b1118; }
+.nav.up    { grid-area: 1/2; border-radius: 12px 12px 4px 4px; }
+.nav.left  { grid-area: 2/1; border-radius: 12px 4px 4px 12px; }
+.nav.right { grid-area: 2/3; border-radius: 4px 12px 12px 4px; }
+.nav.down  { grid-area: 3/2; border-radius: 4px 4px 12px 12px; }
+.nav-center { grid-area: 2/2; background: #101821; border-radius: 6px; box-shadow: inset 0 2px 5px #000; }
+.nav::after { content: ''; display: block; margin: auto; width: 0; height: 0; border: 7px solid transparent; }
+.nav.up::after    { border-bottom-color: #7e93b5; }
+.nav.down::after  { border-top-color: #7e93b5; }
+.nav.left::after  { border-right-color: #7e93b5; }
+.nav.right::after { border-left-color: #7e93b5; }
+
+.keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px 14px; margin-top: 16px; width: 82%; }
+.keys span {
+  text-align: center; padding: 6px 0; font-size: 7px; color: #aebdd4;
+  background: linear-gradient(180deg, #3a4f70, #2a3b58);
+  border-radius: 10px; box-shadow: 0 2px 0 #1a2740, inset 0 1px 0 rgba(255,255,255,.22);
+}
+.hint { color: #5c6f88; font-size: 8px; letter-spacing: 1px; text-align: center; }
+
+@media (max-height: 700px) { .phone { transform: scale(.88); } .hint { display: none; } }

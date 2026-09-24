@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Nokia Snake</title>
+<meta name="description" content="Old Nokia 3310 style snake game. Arrow keys, swipe, or the phone keypad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stage">
+  <div class="phone" id="phone">
+    <div class="earpiece"></div>
+    <div class="brand">NOKIA</div>
+    <div class="bezel">
+      <canvas id="lcd" width="336" height="192" aria-label="Snake game screen"></canvas>
+      <div class="glare"></div>
+    </div>
+
+    <div class="softkeys">
+      <button class="softkey" id="btn-start" type="button">START</button>
+      <button class="softkey" id="btn-replay" type="button">REPLAY</button>
+      <button class="softkey" id="btn-over" type="button">START&nbsp;OVER</button>
+    </div>
+
+    <div class="navpad">
+      <button class="nav up"    data-dir="up"    aria-label="Up"></button>
+      <button class="nav left"  data-dir="left"  aria-label="Left"></button>
+      <div class="nav-center"></div>
+      <button class="nav right" data-dir="right" aria-label="Right"></button>
+      <button class="nav down"  data-dir="down"  aria-label="Down"></button>
+    </div>
+
+    <div class="keys" aria-hidden="true">
+      <span>1</span><span>2 &#9650;</span><span>3</span>
+      <span>4 &#9664;</span><span>5</span><span>6 &#9654;</span>
+      <span>7</span><span>8 &#9660;</span><span>9</span>
+      <span>*</span><span>0</span><span>#</span>
+    </div>
+  </div>
+  <p class="hint">Arrow keys / WASD / swipe / keypad 2-4-6-8</p>
+</main>
+<script src="snake-core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
